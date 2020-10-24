@@ -1,4 +1,4 @@
-module gtk.LogMaker;
+module LogViewer;
 
 import gtk.ScrolledWindow;
 import gtk.TextBuffer;
@@ -12,10 +12,16 @@ import std.string;
 import std.stdio;
 import std.file;
 
-class LogMaker : ScrolledWindow {
-    public this(string log_path = "") @trusted {
-        super(); log_file_path = log_path;
+import gtk.Builder;
 
+import glib.c.types;
+import gtk.c.types;
+
+extern (C) GObject * gtk_builder_get_object (GtkBuilder * builder, const char * name);
+
+class LogViewer : ScrolledWindow {
+    public this(ref Builder _builder, string _wname) @trusted {
+        super(cast(GtkScrolledWindow *)gtk_builder_get_object(_builder.getBuilderStruct(), _wname.ptr));
         log_viewer = new TextView();
         log_viewer.setEditable(false);
 
@@ -26,7 +32,7 @@ class LogMaker : ScrolledWindow {
         add(log_viewer);
     }
 
-    public void make_record(string record) @trusted {
+    public void makeRecord(string record) @trusted {
         string dt_str = Clock.currTime().toString();
 
         string rec_wt = "[ " ~ dt_str[0..dt_str.lastIndexOf('.')] ~ " ] " ~ record ~ "\n";
@@ -48,13 +54,8 @@ class LogMaker : ScrolledWindow {
         log_viewer.scrollToMark(end_mark, 0.0, false, 0.0, 0.0); 
     }
 
-    public string getLogFilePath() @safe {
-        return log_file_path;
-    }
-
-    public void setLogFilePath(string log_path) @safe {
-        log_file_path = log_path;
-    }
+    @property string logFilePath() { return log_file_path; }
+    @property string logFilePath(string path_value) { return log_file_path = path_value; }
 
     private string log_file_path;
 

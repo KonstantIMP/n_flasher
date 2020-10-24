@@ -1,7 +1,8 @@
-module kimp.NFlasher;
-import kimp.NFlasherWin;
+module NFlasher;
+import NFlasherWin;
 
 import gtk.Application;
+import gtk.Builder;
 import gtk.Main;
 
 void main( string [] args) {
@@ -10,7 +11,10 @@ void main( string [] args) {
     Application app = new Application("org.nokia.flasher.kimp", GApplicationFlags.FLAGS_NONE);
     
     app.addOnActivate((gio.Application.Application) {
-        NFlasherWin win = new NFlasherWin();
+        Builder bc = new Builder();
+        bc.addFromResource("/kimp/NFlasherWin.glade");
+
+        NFlasherWin win = new NFlasherWin(bc, "main_window");
         win.showAll(); app.addWindow(win);
     });
 
