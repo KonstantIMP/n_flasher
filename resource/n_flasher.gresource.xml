@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/kimp/">
-    <file>NFlasherWin.glade</file>
-    <file>n_flasher.png</file>
+  <gresource prefix="/kimp/ui/">
+    <file preprocess="xml-stripblanks">NFlasherWin.glade</file>
+  </gresource>
+  <gresource prefix="/kimp/img/">
+      <file>n_flasher.png</file>
   </gresource>
 </gresources>

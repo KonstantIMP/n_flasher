@@ -12,7 +12,7 @@ void main( string [] args) {
     
     app.addOnActivate((gio.Application.Application) {
         Builder bc = new Builder();
-        bc.addFromResource("/kimp/NFlasherWin.glade");
+        bc.addFromResource("/kimp/ui/NFlasherWin.glade");
 
         NFlasherWin win = new NFlasherWin(bc, "main_window");
         win.showAll(); app.addWindow(win);

@@ -42,6 +42,8 @@ class NFlasherWin : Window {
         rom_en = cast(Entry)ui_builder.getObject("rom_en");
     
         log_v = new LogViewer(ui_builder, "log_sw");
+
+        setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
     }
 
     private void connectSignal() @trusted {
@@ -105,7 +107,14 @@ class NFlasherWin : Window {
         AboutDialog about = new AboutDialog();
 
         about.setVersion("0.0.1");
-
+        about.setAuthors(["KonstantIMP"]);
+        about.setProgramName("n_flasher");
+        about.setLicenseType(GtkLicense.LGPL_3_0);
+        about.setCopyright("Copyright © 2020, KonstantIMP");
+        about.setComments("Simple app for Nokia 7.1 flashing");
+        about.setWebsite("https://github.com/KonstantIMP/n_flasher");
+        about.setLogo(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 96, 96, true));
+        
         about.run(); about.destroy();
     }
 
