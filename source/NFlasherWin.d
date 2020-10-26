@@ -8,6 +8,7 @@ import glib.c.types;
 import gtk.c.types;
 
 import gtk.FileChooserDialog;
+import gtk.MessageDialog;
 import gtk.AboutDialog;
 
 import gdk.Pixbuf;
@@ -121,6 +122,13 @@ class NFlasherWin : Window {
         flasher = new shared PhoneFlasher();
 
         if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText())) {
+            MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
+                GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
+
+            if(are_you_sure.run() != ResponseType.YES) {
+                are_you_sure.destroy(); return;
+            } are_you_sure.destroy();
+
             set_adb_btn.setSensitive(false);
             set_rom_btn.setSensitive(false);
             flash_btn.setSensitive(false);
