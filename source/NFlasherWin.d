@@ -137,16 +137,14 @@ class NFlasherWin : Window {
     protected bool updateUI() @trusted {
         receiveTimeout(dur!("msecs")(50),
             (int code) {
-                if(code == -1) {
-                    set_adb_btn.setSensitive(false);
-                    set_rom_btn.setSensitive(false);
-                    flash_btn.setSensitive(false);
+                set_adb_btn.setSensitive(true);
+                set_rom_btn.setSensitive(true);
+                flash_btn.setSensitive(true);
 
-                    adb_en.setSensitive(false);
-                    rom_en.setSensitive(false);
+                adb_en.setSensitive(true);
+                rom_en.setSensitive(true);
 
-                    ui_updater.stop();
-                }
+                ui_updater.stop();
             },
             (double fr) { flash_pb.setFraction(fr); },
             (string rec) { log_v.makeRecord(rec); });
