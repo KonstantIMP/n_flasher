@@ -5,7 +5,8 @@ gnome = import('gnome')
 n_flasher_sources = [
     'source/app.d',
     'source/LogViewer.d',
-    'source/NFlasherWin.d'
+    'source/NFlasherWin.d',
+    'source/PhoneFlasher.d'
 ]
 
 source_root = meson.source_root()

@@ -1,5 +1,6 @@
 module NFlasherWin;
 import LogViewer;
+import PhoneFlasher;
 
 import std.system;
 
@@ -18,6 +19,12 @@ import gtk.Widget;
 import gtk.ProgressBar;
 import gtk.Button;
 import gtk.Entry;
+
+import glib.Timeout;
+
+import std.concurrency;
+import core.thread;
+import std.stdio;
 
 extern (C) GObject * gtk_builder_get_object (GtkBuilder * builder, const char * name);
 
@@ -51,6 +58,7 @@ class NFlasherWin : Window {
 
         set_adb_btn.addOnClicked(&setEntry);
         set_rom_btn.addOnClicked(&setEntry);
+        flash_btn.addOnClicked(&flashStart);
 
         addOnDestroy(&quitApp);
     }
@@ -70,20 +78,7 @@ class NFlasherWin : Window {
         }
     }
 
-    private ProgressBar flash_pb;
-
-    private Button set_adb_btn;
-    private Button set_rom_btn;
-    private Button flash_btn;
-
-    private Entry adb_en;
-    private Entry rom_en;
-
-    private Builder ui_builder;
-
-    private LogViewer log_v;
-
-    protected slot setEntry(Button pressed) {
+    protected slot setEntry(Button pressed) @trusted {
         FileChooserDialog open_folder = new FileChooserDialog((pressed == set_adb_btn ? "Set ADB tools path" : "Set stock ROM path"),
                                                                 this, FileChooserAction.SELECT_FOLDER, null, null);
         int responce = open_folder.run();
@@ -91,11 +86,11 @@ class NFlasherWin : Window {
         if(responce == ResponseType.OK) {
             if(pressed == set_adb_btn) {
                 log_v.makeRecord("Setting ADB tools path as : " ~ open_folder.getFilename());
-                adb_en.setText(open_folder.getFilename());
+                adb_en.setText(open_folder.getFilename() ~ (os == OS.linux ? '/' : '\\'));
             }
             else {
                 log_v.makeRecord("Setting stock ROM path as : " ~ open_folder.getFilename());
-                rom_en.setText(open_folder.getFilename());
+                rom_en.setText(open_folder.getFilename() ~ (os == OS.linux ? '/' : '\\'));
             }
         }
         else log_v.makeRecord("Setting " ~ (pressed == set_adb_btn ? "ADB tools " : "stock ROM ") ~ "path canceld");
@@ -103,7 +98,7 @@ class NFlasherWin : Window {
         open_folder.destroy();
     }
 
-    protected slot showAbout(Button pressed) {
+    protected slot showAbout(Button pressed) @trusted {
         AboutDialog about = new AboutDialog();
 
         about.setVersion("0.0.1");
@@ -118,7 +113,63 @@ class NFlasherWin : Window {
         about.run(); about.destroy();
     }
 
-    protected slot quitApp(Widget window) {
+    protected slot quitApp(Widget window) @trusted {
         log_v.makeRecord("Program closed");
     }
+
+    protected slot flashStart(Button _pressed) @trusted {
+        flasher = new shared PhoneFlasher();
+
+        if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText())) {
+            set_adb_btn.setSensitive(false);
+            set_rom_btn.setSensitive(false);
+            flash_btn.setSensitive(false);
+
+            adb_en.setSensitive(false);
+            rom_en.setSensitive(false);
+
+            child_tid = spawn(&flasher.startFlashing, thisTid);
+
+            ui_updater = new Timeout(500, &updateUI);
+        }
+    }
+
+    protected bool updateUI() @trusted {
+        receiveTimeout(dur!("msecs")(50),
+            (int code) {
+                if(code == -1) {
+                    set_adb_btn.setSensitive(false);
+                    set_rom_btn.setSensitive(false);
+                    flash_btn.setSensitive(false);
+
+                    adb_en.setSensitive(false);
+                    rom_en.setSensitive(false);
+
+                    ui_updater.stop();
+                }
+            },
+            (double fr) { flash_pb.setFraction(fr); },
+            (string rec) { log_v.makeRecord(rec); });
+
+        return true;
+    }
+
+    private ProgressBar flash_pb;
+
+    private Button set_adb_btn;
+    private Button set_rom_btn;
+    private Button flash_btn;
+
+    private Entry adb_en;
+    private Entry rom_en;
+
+    private Builder ui_builder;
+
+    private LogViewer log_v;
+
+    private shared PhoneFlasher flasher;
+
+    private Timeout ui_updater;
+
+    private Tid child_tid;
 }
