@@ -66,6 +66,12 @@ synchronized class PhoneFlasher {
 
         Thread.sleep(dur!("seconds")(10));
 
+        send(parent, "Formatting system partition");
+        runCommand(full_fastboot ~ " erase system");
+
+        send(parent, "Formatting vendor partition");
+        runCommand(full_fastboot ~ " erase vendor");
+
         send(parent, "Flashing abl_a partition...");
         runCommand(full_fastboot ~ " flash abl_a " ~ rom ~ "abl.img");
         send(parent, "abl_a partition were flashed!"); 

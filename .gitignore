@@ -22,3 +22,9 @@ docs/
 
 # Code coverage
 *.lst
+
+# Meson builddir
+builddir/
+
+# VS code dlang module
+compile_commands.json
