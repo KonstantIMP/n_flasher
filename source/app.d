@@ -1,3 +1,10 @@
+/// @file app.d
+/// 
+/// @brief Main program file
+///
+/// @license LGPLv3 (see LICENSE file)
+/// @author KonstantIMP
+/// @date 2020
 module NFlasher;
 import NFlasherWin;
 

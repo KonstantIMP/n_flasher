@@ -1,3 +1,10 @@
+/// @file NFlasherWin.d
+/// 
+/// @brief Main program file
+///
+/// @license LGPLv3 (see LICENSE file)
+/// @author KonstantIMP
+/// @date 2020
 module NFlasherWin;
 import LogViewer;
 import PhoneFlasher;
