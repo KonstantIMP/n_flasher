@@ -21,19 +21,19 @@ import gtk.ProgressBar;
 import gtk.Button;
 import gtk.Entry;
 
+import gtk.Main;
+
 import glib.Timeout;
 
 import std.concurrency;
 import core.thread;
 import std.stdio;
 
-extern (C) GObject * gtk_builder_get_object (GtkBuilder * builder, const char * name);
-
 alias slot = void; 
 
 class NFlasherWin : Window {
     public this(ref Builder _builder, string _wname) @trusted { 
-        super(cast(GtkWindow *)gtk_builder_get_object(_builder.getBuilderStruct(), _wname.ptr));
+        super((cast(Window)(_builder.getObject(_wname))).getWindowStruct());
         setDefaultSize(450, 200); setBorderWidth(10); ui_builder = _builder;
 
         createUI(); connectSignal(); initValues();
@@ -155,7 +155,10 @@ class NFlasherWin : Window {
                 ui_updater.stop();
             },
             (double fr) { flash_pb.setFraction(fr); },
-            (string rec) { log_v.makeRecord(rec); });
+            (string rec) {
+                log_v.makeRecord(rec);
+                while(Main.eventsPending()) Main.iteration();
+            });
 
         return true;
     }

@@ -17,11 +17,9 @@ import gtk.Builder;
 import glib.c.types;
 import gtk.c.types;
 
-extern (C) GObject * gtk_builder_get_object (GtkBuilder * builder, const char * name);
-
 class LogViewer : ScrolledWindow {
     public this(ref Builder _builder, string _wname) @trusted {
-        super(cast(GtkScrolledWindow *)gtk_builder_get_object(_builder.getBuilderStruct(), _wname.ptr));
+        super((cast(ScrolledWindow)(_builder.getObject(_wname))).getScrolledWindowStruct());
         log_viewer = new TextView();
         log_viewer.setEditable(false);
 
@@ -41,7 +39,7 @@ class LogViewer : ScrolledWindow {
             File * tmp = new File(log_file_path, "a+");
             tmp.write(rec_wt); tmp.close();
             tmp.destroy();
-        }
+        }       
 
         log_viewer.getBuffer().setText(log_viewer.getBuffer().getText() ~ rec_wt);
 
