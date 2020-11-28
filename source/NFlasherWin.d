@@ -134,7 +134,16 @@ class NFlasherWin : Window {
         about.setCopyright("Copyright © 2020, KonstantIMP");
         about.setComments("Simple app for Nokia 7.1 flashing");
         about.setWebsite("https://github.com/KonstantIMP/n_flasher");
-        about.setLogo(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 96, 96, true));
+        
+        try {
+            if(os == OS.linux) about.setLogo(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 96, 96, true));
+            else about.setLogo(new Pixbuf("res\\n_flasher.png", 96, 96, true));
+        }
+        catch(Exception) {
+            MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
+                    GtkMessageType.WARNING, GtkButtonsType.OK, "Hello!\nThere was a problem(not critical) loading resources!\nReinstall program to solve program...", null);
+            war.showAll(); war.run(); war.destroy();
+        }
         
         about.run(); about.destroy();
     }
