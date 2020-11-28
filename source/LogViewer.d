@@ -24,7 +24,13 @@ import gtk.Builder;
 import glib.c.types;
 import gtk.c.types;
 
+/// @brief Widget for log Viewing and writing
+/// It is a composite widget
+/// GtkScrolledWindow
+/// |__ GtkTextView
 class LogViewer : ScrolledWindow {
+     /// @brief  Basic constructor for widget
+    /// Init child widgets, build ui and connect signals
     public this(ref Builder _builder, string _wname) @trusted {
         super((cast(ScrolledWindow)(_builder.getObject(_wname))).getScrolledWindowStruct());
         log_viewer = new TextView();
@@ -37,6 +43,8 @@ class LogViewer : ScrolledWindow {
         add(log_viewer);
     }
 
+    /// @brief Make record. Write it to file and to TextView
+    /// @param[in] record Message for writing
     public void makeRecord(string record) @trusted {
         string dt_str = Clock.currTime().toString();
 
@@ -59,10 +67,14 @@ class LogViewer : ScrolledWindow {
         log_viewer.scrollToMark(end_mark, 0.0, false, 0.0, 0.0); 
     }
 
+    /// @brief Getter for logFilePath
     @property string logFilePath() { return log_file_path; }
+    /// @brief Setter for logFilePath
     @property string logFilePath(string path_value) { return log_file_path = path_value; }
 
+    /// @brief Path to log file
     private string log_file_path;
 
+    /// @brief Text view for record showing
     private TextView log_viewer;
 }

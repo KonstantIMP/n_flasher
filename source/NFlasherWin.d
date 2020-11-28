@@ -36,9 +36,14 @@ import std.concurrency;
 import core.thread;
 import std.stdio;
 
-alias slot = void; 
+import core.stdc.stdlib;
 
+/// @brief  NFlasherWin Main window widget
+///
+/// Contains all UI elements
 class NFlasherWin : Window {
+    /// @brief  Basic constructor for widget
+    /// Init child widgets, build ui and connect signals
     public this(ref Builder _builder, string _wname) @trusted { 
         super((cast(Window)(_builder.getObject(_wname))).getWindowStruct());
         setDefaultSize(450, 200); setBorderWidth(10); ui_builder = _builder;
@@ -46,6 +51,7 @@ class NFlasherWin : Window {
         createUI(); connectSignal(); initValues();
     }
 
+    /// @brief Get widgets from builder and create log viewer
     private void createUI() @trusted {
         flash_pb = cast(ProgressBar)ui_builder.getObject("flash_pb");
 
@@ -58,9 +64,18 @@ class NFlasherWin : Window {
     
         log_v = new LogViewer(ui_builder, "log_sw");
 
-        setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
+        try {
+            if(os == OS.linux) setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
+            else setIcon(Pixbuf.newFromFile("res\\n_flasher.png", 64, 64, true));
+        }
+        catch(Exception) {
+            MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
+                    GtkMessageType.WARNING, GtkButtonsType.OK, "Hello!\nThere was a problem(not critical) loading resources!\nReinstall program to solve program...", null);
+            war.showAll(); war.run(); war.destroy();
+        }
     }
 
+    /// @brief Connect signals for buttons
     private void connectSignal() @trusted {
         (cast(Button)ui_builder.getObject("about_btn")).addOnClicked(&showAbout);
 
@@ -71,6 +86,7 @@ class NFlasherWin : Window {
         addOnDestroy(&quitApp);
     }
 
+    /// @brief Setup start values for different platforms
     private void initValues() @trusted {
         log_v.logFilePath("n_flasher.log");
         log_v.makeRecord("Program started");
@@ -86,7 +102,8 @@ class NFlasherWin : Window {
         }
     }
 
-    protected slot setEntry(Button pressed) @trusted {
+    /// @brief Slot for setting PATH for ADB and ROM
+    protected void setEntry(Button pressed) @trusted {
         FileChooserDialog open_folder = new FileChooserDialog((pressed == set_adb_btn ? "Set ADB tools path" : "Set stock ROM path"),
                                                                 this, FileChooserAction.SELECT_FOLDER, null, null);
         int responce = open_folder.run();
@@ -106,7 +123,8 @@ class NFlasherWin : Window {
         open_folder.destroy();
     }
 
-    protected slot showAbout(Button pressed) @trusted {
+    /// @brief Slot for open AboutDialog
+    protected void showAbout(Button pressed) @trusted {
         AboutDialog about = new AboutDialog();
 
         about.setVersion("0.0.1");
@@ -121,21 +139,26 @@ class NFlasherWin : Window {
         about.run(); about.destroy();
     }
 
-    protected slot quitApp(Widget window) @trusted {
+    /// @brief Slot for app quit (make record in log)
+    protected void quitApp(Widget window) @trusted {
         log_v.makeRecord("Program closed");
     }
 
-    protected slot flashStart(Button _pressed) @trusted {
+    /// @brief Slot for flashing start
+    protected void flashStart(Button _pressed) @trusted {
         flasher = new shared PhoneFlasher();
 
+        /// Check rom
         if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText())) {
             MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
                 GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
 
+            /// Warning user
             if(are_you_sure.run() != ResponseType.YES) {
                 are_you_sure.destroy(); return;
             } are_you_sure.destroy();
 
+            /// Disable buttons
             set_adb_btn.setSensitive(false);
             set_rom_btn.setSensitive(false);
             flash_btn.setSensitive(false);
@@ -143,12 +166,15 @@ class NFlasherWin : Window {
             adb_en.setSensitive(false);
             rom_en.setSensitive(false);
 
+            /// Spawn flashing process
             child_tid = spawn(&flasher.startFlashing, thisTid);
 
+            /// Ui updater connect
             ui_updater = new Timeout(500, &updateUI);
         }
     }
 
+    /// @brief Slot for ui updating while flashing is being
     protected bool updateUI() @trusted {
         receiveTimeout(dur!("msecs")(50),
             (int code) {
@@ -170,22 +196,33 @@ class NFlasherWin : Window {
         return true;
     }
 
+    /// @brief flash_pb Flashing process %
     private ProgressBar flash_pb;
 
+    /// @brief set_adb_btn Button for ADB PATH setting
     private Button set_adb_btn;
+    /// @brief set_rom_btn Button for ROM PATH setting
     private Button set_rom_btn;
+    /// @brief flash_btn Button for flashing starting
     private Button flash_btn;
 
+    /// @brief adb_en Entry for ADB PATH setting
     private Entry adb_en;
+    /// @brief rom_en Entry for ROM PATH setting
     private Entry rom_en;
 
+    /// @brief ui_builder UI builder object
     private Builder ui_builder;
 
+    /// @brief log_v Widget for Log viewing
     private LogViewer log_v;
 
+    /// @brief flasher Flasher object (Class for flashing)
     private shared PhoneFlasher flasher;
 
+    /// @brief ui_updater UI updating timeout
     private Timeout ui_updater;
 
+    /// @brief child_tid Child tid for getting data
     private Tid child_tid;
 }

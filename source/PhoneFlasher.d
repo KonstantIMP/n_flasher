@@ -17,11 +17,14 @@ import core.thread;
 
 import std.stdio;
 
+/// @brief Class for Nokia 7.1 flashing
 synchronized class PhoneFlasher {
+    /// @brief  Basic constructor for widget
     public this() @safe {
         adb = rom = "";
     }
 
+    /// @brief Check that ROM folder contains all file for flashing
     bool checkValue(ref LogViewer _log, string _adb_path, string _rom_path) @safe {
         _log.makeRecord("Checking ADB tools path");
 
@@ -53,6 +56,8 @@ synchronized class PhoneFlasher {
         return true;
     }
 
+    /// @brief Flash process
+    /// @param[in] parent Parent Tid for data sending
     public void startFlashing(Tid parent) @trusted {
         send(parent, cast(double)(0.0));
 
@@ -214,16 +219,19 @@ synchronized class PhoneFlasher {
         send(parent, cast(int)(-1));
     }
 
+    /// @brief Spawn shell command and wait when it close
+    /// @param[in] cmd Command for spawn
     private void runCommand(string cmd) @trusted {
         Pid runned_p = spawnShell(cmd, std.stdio.stdin, File("adb_out.log", "a+"));
         wait(runned_p);
     }
 
+    /// @brief adb ADB PATH
     private string adb;
+    /// @brief rom ROM PATH
     private string rom;
 
-    private string [] log_r;
-
+    /// @brief rom_files Array of rom files names
     private string [] rom_files = [
         "abl.img", "bluetooth.img", "boot.img",
         "cda.img", "cmnlib64.img", "cmnlib.img",
