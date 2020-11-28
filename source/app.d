@@ -37,7 +37,7 @@ int main( string [] args) {
             /// Error while loading .glade file
             MessageDialog err = new MessageDialog(null, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
                     GtkMessageType.ERROR, GtkButtonsType.OK, "Hello!\nThere was a problem loading resources!\nReinstall program to solve program...", null);
-            signal_app.addWindow(err); err.showAll(); err.run();
+            app.addWindow(err); err.showAll(); err.run();
             err.destroy();
 
             exit(-1);

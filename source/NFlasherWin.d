@@ -18,7 +18,7 @@ import gtk.FileChooserDialog;
 import gtk.MessageDialog;
 import gtk.AboutDialog;
 
-import gdk.Pixbuf;
+import gdkpixbuf.Pixbuf;
 
 import gtk.Builder;
 import gtk.Window;
@@ -66,7 +66,7 @@ class NFlasherWin : Window {
 
         try {
             if(os == OS.linux) setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
-            else setIcon(Pixbuf.newFromFile("res\\n_flasher.png", 64, 64, true));
+            else setIcon(new Pixbuf("res\\n_flasher.png", 64, 64, true));
         }
         catch(Exception) {
             MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
