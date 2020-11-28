@@ -127,7 +127,7 @@ class NFlasherWin : Window {
     protected void showAbout(Button pressed) @trusted {
         AboutDialog about = new AboutDialog();
 
-        about.setVersion("0.0.1");
+        about.setVersion("0.1.1");
         about.setAuthors(["KonstantIMP"]);
         about.setProgramName("n_flasher");
         about.setLicenseType(GtkLicense.LGPL_3_0);
