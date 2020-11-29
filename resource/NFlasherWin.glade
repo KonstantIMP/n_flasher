@@ -106,7 +106,7 @@
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">3</property>
-            <property name="width">9</property>
+            <property name="width">10</property>
           </packing>
         </child>
         <child>
@@ -194,7 +194,7 @@
           </object>
           <packing>
             <property name="left-attach">9</property>
-            <property name="top-attach">3</property>
+            <property name="top-attach">2</property>
           </packing>
         </child>
         <child>
@@ -222,7 +222,7 @@
             <property name="draw-indicator">True</property>
           </object>
           <packing>
-            <property name="left-attach">9</property>
+            <property name="left-attach">8</property>
             <property name="top-attach">2</property>
           </packing>
         </child>
@@ -237,7 +237,7 @@
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">2</property>
-            <property name="width">9</property>
+            <property name="width">8</property>
           </packing>
         </child>
       </object>
