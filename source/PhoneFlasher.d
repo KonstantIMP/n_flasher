@@ -25,7 +25,7 @@ synchronized class PhoneFlasher {
     }
 
     /// @brief Check that ROM folder contains all file for flashing
-    bool checkValue(ref LogViewer _log, string _adb_path, string _rom_path) @safe {
+    bool checkValue(ref LogViewer _log, string _adb_path, string _rom_path, bool vbmeta) @safe {
         _log.makeRecord("Checking ADB tools path");
 
         if(!exists(_adb_path ~ "adb" ~ (os == OS.linux ? "" : ".exe"))) {
@@ -42,10 +42,18 @@ synchronized class PhoneFlasher {
 
         _log.makeRecord("Checking stock ROM path");
 
-        for(size_t i = 0; i < rom_files.length; i++) {
+        for(size_t i = 0; i < rom_files.length - 1; i++) {
             if(exists(_rom_path  ~ rom_files[i])) _log.makeRecord(rom_files[i] ~ " found : OK");
             else {
                 _log.makeRecord(_rom_path ~ rom_files[i] ~ " didn\'t found : ERROR");
+                return false;
+            }
+        }
+
+        if(vbmeta == true) {
+            if(exists(_rom_path ~ rom_files[rom_files.length - 1])) _log.makeRecord(rom_files[rom_files.length - 1] ~ " found : OK");
+            else {
+                _log.makeRecord(_rom_path ~ rom_files[rom_files.length - 1] ~ " didn\'t found : ERROR");
                 return false;
             }
         }
@@ -58,7 +66,7 @@ synchronized class PhoneFlasher {
 
     /// @brief Flash process
     /// @param[in] parent Parent Tid for data sending
-    public void startFlashing(Tid parent) @trusted {
+    public void startFlashing(Tid parent, bool vbmeta) @trusted {
         send(parent, cast(double)(0.0));
 
         if(adb == "" || rom == "") {
@@ -184,6 +192,12 @@ synchronized class PhoneFlasher {
         runCommand(full_fastboot ~ " flash vendor_a " ~ rom ~ "vendor.img");
         send(parent, "vendor_a partition were flashed!"); send(parent, cast(double)(0.92));
 
+        if(vbmeta == true) {
+            send(parent, "Flashing vbmeta_a partition...");
+            runCommand(full_fastboot ~ " flash vbmeta_a " ~ rom ~ "vbmeta.img");
+            send(parent, "vbmeta_a partition were flashed!");
+        } 
+
         send(parent, "Erasing tmp files from phone");
 
         send(parent, "Formatting ssd partition");
@@ -240,6 +254,6 @@ synchronized class PhoneFlasher {
         "mdtpsecapp.img", "modem.img", "nvdef.img",
         "pmic.img", "rpm.img", "splash.img",
         "system.img", "systeminfo.img", "tz.img",
-        "vendor.img", "xbl.img"
+        "vendor.img", "xbl.img", "vbmeta.img"
     ];
 }

@@ -2,3 +2,181 @@
 [ 2020-Nov-28 23:07:53 ] Your OS type : linux
 [ 2020-Nov-28 23:07:53 ] Fastboot tools must be at '/usr/bin/'
 [ 2020-Nov-28 23:07:58 ] Program closed
+[ 2020-Nov-29 12:28:21 ] Program started
+[ 2020-Nov-29 12:28:21 ] Your OS type : linux
+[ 2020-Nov-29 12:28:21 ] Fastboot tools must be at '/usr/bin/'
+[ 2020-Nov-29 12:28:29 ] Program closed
+[ 2020-Nov-29 12:33:54 ] Program started
+[ 2020-Nov-29 12:33:54 ] Your OS type : linux
+[ 2020-Nov-29 12:33:54 ] Fastboot tools must be at '/usr/bin/'
+[ 2020-Nov-29 12:34:00 ] Program closed
+[ 2020-Nov-29 12:35:19 ] Program started
+[ 2020-Nov-29 12:35:19 ] Your OS type : linux
+[ 2020-Nov-29 12:35:19 ] Fastboot tools must be at '/usr/bin/'
+[ 2020-Nov-29 12:35:27 ] Setting stock ROM path as : /home/kimp/Downloads/rom
+[ 2020-Nov-29 12:35:28 ] Checking ADB tools path
+[ 2020-Nov-29 12:35:28 ] ADB found : OK
+[ 2020-Nov-29 12:35:28 ] Fastboot found : OK
+[ 2020-Nov-29 12:35:28 ] Checking stock ROM path
+[ 2020-Nov-29 12:35:28 ] abl.img found : OK
+[ 2020-Nov-29 12:35:28 ] bluetooth.img found : OK
+[ 2020-Nov-29 12:35:28 ] boot.img found : OK
+[ 2020-Nov-29 12:35:28 ] cda.img found : OK
+[ 2020-Nov-29 12:35:28 ] cmnlib64.img found : OK
+[ 2020-Nov-29 12:35:28 ] cmnlib.img found : OK
+[ 2020-Nov-29 12:35:28 ] devcfg.img found : OK
+[ 2020-Nov-29 12:35:28 ] dsp.img found : OK
+[ 2020-Nov-29 12:35:28 ] hidden.img found : OK
+[ 2020-Nov-29 12:35:28 ] hyp.img found : OK
+[ 2020-Nov-29 12:35:28 ] keymaster.img found : OK
+[ 2020-Nov-29 12:35:28 ] mdtp.img found : OK
+[ 2020-Nov-29 12:35:28 ] mdtpsecapp.img found : OK
+[ 2020-Nov-29 12:35:28 ] modem.img found : OK
+[ 2020-Nov-29 12:35:28 ] nvdef.img found : OK
+[ 2020-Nov-29 12:35:28 ] pmic.img found : OK
+[ 2020-Nov-29 12:35:28 ] rpm.img found : OK
+[ 2020-Nov-29 12:35:28 ] splash.img found : OK
+[ 2020-Nov-29 12:35:28 ] system.img found : OK
+[ 2020-Nov-29 12:35:28 ] systeminfo.img found : OK
+[ 2020-Nov-29 12:35:28 ] tz.img found : OK
+[ 2020-Nov-29 12:35:28 ] vendor.img found : OK
+[ 2020-Nov-29 12:35:28 ] xbl.img found : OK
+[ 2020-Nov-29 12:35:28 ] /home/kimp/Downloads/rom/vbmeta.img didn't found : ERROR
+[ 2020-Nov-29 12:36:04 ] Setting stock ROM path as : /home/kimp/Documents/ROM
+[ 2020-Nov-29 12:36:05 ] Checking ADB tools path
+[ 2020-Nov-29 12:36:05 ] ADB found : OK
+[ 2020-Nov-29 12:36:05 ] Fastboot found : OK
+[ 2020-Nov-29 12:36:05 ] Checking stock ROM path
+[ 2020-Nov-29 12:36:05 ] abl.img found : OK
+[ 2020-Nov-29 12:36:05 ] bluetooth.img found : OK
+[ 2020-Nov-29 12:36:05 ] boot.img found : OK
+[ 2020-Nov-29 12:36:05 ] cda.img found : OK
+[ 2020-Nov-29 12:36:05 ] cmnlib64.img found : OK
+[ 2020-Nov-29 12:36:05 ] cmnlib.img found : OK
+[ 2020-Nov-29 12:36:05 ] devcfg.img found : OK
+[ 2020-Nov-29 12:36:05 ] dsp.img found : OK
+[ 2020-Nov-29 12:36:05 ] hidden.img found : OK
+[ 2020-Nov-29 12:36:05 ] hyp.img found : OK
+[ 2020-Nov-29 12:36:05 ] keymaster.img found : OK
+[ 2020-Nov-29 12:36:05 ] mdtp.img found : OK
+[ 2020-Nov-29 12:36:05 ] mdtpsecapp.img found : OK
+[ 2020-Nov-29 12:36:05 ] modem.img found : OK
+[ 2020-Nov-29 12:36:05 ] nvdef.img found : OK
+[ 2020-Nov-29 12:36:05 ] pmic.img found : OK
+[ 2020-Nov-29 12:36:05 ] rpm.img found : OK
+[ 2020-Nov-29 12:36:05 ] splash.img found : OK
+[ 2020-Nov-29 12:36:05 ] system.img found : OK
+[ 2020-Nov-29 12:36:05 ] systeminfo.img found : OK
+[ 2020-Nov-29 12:36:05 ] tz.img found : OK
+[ 2020-Nov-29 12:36:05 ] vendor.img found : OK
+[ 2020-Nov-29 12:36:05 ] xbl.img found : OK
+[ 2020-Nov-29 12:36:05 ] vbmeta.img found : OK
+[ 2020-Nov-29 12:36:09 ] Program closed
+[ 2020-Nov-29 12:37:53 ] Program started
+[ 2020-Nov-29 12:37:53 ] Your OS type : linux
+[ 2020-Nov-29 12:37:53 ] Fastboot tools must be at '/usr/bin/'
+[ 2020-Nov-29 12:37:56 ] Program closed
+[ 2020-Nov-29 12:40:25 ] Program started
+[ 2020-Nov-29 12:40:25 ] Your OS type : linux
+[ 2020-Nov-29 12:40:25 ] Fastboot tools must be at '/usr/bin/'
+[ 2020-Nov-29 12:40:26 ] vbmeta flashing is : YES
+[ 2020-Nov-29 12:40:28 ] vbmeta flashing is : NO
+[ 2020-Nov-29 12:40:29 ] vbmeta flashing is : YES
+[ 2020-Nov-29 12:40:51 ] Setting stock ROM path as : /home/kimp/Documents/ROM
+[ 2020-Nov-29 12:40:57 ] Checking ADB tools path
+[ 2020-Nov-29 12:40:57 ] ADB found : OK
+[ 2020-Nov-29 12:40:57 ] Fastboot found : OK
+[ 2020-Nov-29 12:40:57 ] Checking stock ROM path
+[ 2020-Nov-29 12:40:57 ] abl.img found : OK
+[ 2020-Nov-29 12:40:57 ] bluetooth.img found : OK
+[ 2020-Nov-29 12:40:57 ] boot.img found : OK
+[ 2020-Nov-29 12:40:57 ] cda.img found : OK
+[ 2020-Nov-29 12:40:57 ] cmnlib64.img found : OK
+[ 2020-Nov-29 12:40:57 ] cmnlib.img found : OK
+[ 2020-Nov-29 12:40:57 ] devcfg.img found : OK
+[ 2020-Nov-29 12:40:57 ] dsp.img found : OK
+[ 2020-Nov-29 12:40:57 ] hidden.img found : OK
+[ 2020-Nov-29 12:40:57 ] hyp.img found : OK
+[ 2020-Nov-29 12:40:57 ] keymaster.img found : OK
+[ 2020-Nov-29 12:40:57 ] mdtp.img found : OK
+[ 2020-Nov-29 12:40:57 ] mdtpsecapp.img found : OK
+[ 2020-Nov-29 12:40:57 ] modem.img found : OK
+[ 2020-Nov-29 12:40:57 ] nvdef.img found : OK
+[ 2020-Nov-29 12:40:57 ] pmic.img found : OK
+[ 2020-Nov-29 12:40:57 ] rpm.img found : OK
+[ 2020-Nov-29 12:40:57 ] splash.img found : OK
+[ 2020-Nov-29 12:40:57 ] system.img found : OK
+[ 2020-Nov-29 12:40:57 ] systeminfo.img found : OK
+[ 2020-Nov-29 12:40:57 ] tz.img found : OK
+[ 2020-Nov-29 12:40:57 ] vendor.img found : OK
+[ 2020-Nov-29 12:40:57 ] xbl.img found : OK
+[ 2020-Nov-29 12:40:57 ] vbmeta.img found : OK
+[ 2020-Nov-29 12:41:00 ] Flashing started. Dont't touch your device!!!
+[ 2020-Nov-29 12:41:00 ] Full ADB path is : /usr/bin/adb
+[ 2020-Nov-29 12:41:01 ] Full fastboot path is : sudo /usr/bin/fastboot
+[ 2020-Nov-29 12:41:01 ] Reboot to bootloader. Waiting 10 seconds...
+[ 2020-Nov-29 12:41:09 ] Formatting system partition
+[ 2020-Nov-29 12:41:15 ] Formatting vendor partition
+[ 2020-Nov-29 12:41:15 ] Flashing abl_a partition...
+[ 2020-Nov-29 12:41:16 ] abl_a partition were flashed!
+[ 2020-Nov-29 12:41:16 ] Flashing abl_b partition...
+[ 2020-Nov-29 12:41:17 ] abl_b partition were flashed!
+[ 2020-Nov-29 12:41:18 ] Flashing xbl_a partition...
+[ 2020-Nov-29 12:41:18 ] xbl_a partition were flashed!
+[ 2020-Nov-29 12:41:19 ] Flashing xbl_b partition...
+[ 2020-Nov-29 12:41:19 ] xbl_b partition were flashed!
+[ 2020-Nov-29 12:41:20 ] Flashing bluetooth_a partition...
+[ 2020-Nov-29 12:41:21 ] bluetooth_a partition were flashed!
+[ 2020-Nov-29 12:41:22 ] Flashing boot_a partition...
+[ 2020-Nov-29 12:41:22 ] boot_a partition were flashed!
+[ 2020-Nov-29 12:41:23 ] Flashing cda_a partition...
+[ 2020-Nov-29 12:41:24 ] cda_a partition were flashed!
+[ 2020-Nov-29 12:41:25 ] Flashing cmnlib_a partition...
+[ 2020-Nov-29 12:41:25 ] cmnlib_a partition were flashed!
+[ 2020-Nov-29 12:41:26 ] Flashing cmnlib64_a partition...
+[ 2020-Nov-29 12:41:27 ] cmnlib64_a partition were flashed!
+[ 2020-Nov-29 12:41:28 ] Flashing devcfg_a partition...
+[ 2020-Nov-29 12:41:28 ] devcfg_a partition were flashed!
+[ 2020-Nov-29 12:41:29 ] Flashing dsp_a partition...
+[ 2020-Nov-29 12:41:30 ] dsp_a partition were flashed!
+[ 2020-Nov-29 12:41:31 ] Flashing hidden_a partition...
+[ 2020-Nov-29 12:41:31 ] hidden_a partition were flashed!
+[ 2020-Nov-29 12:41:32 ] Flashing hyp_a partition...
+[ 2020-Nov-29 12:41:33 ] hyp_a partition were flashed!
+[ 2020-Nov-29 12:41:34 ] Flashing keymaster_a partition...
+[ 2020-Nov-29 12:41:34 ] keymaster_a partition were flashed!
+[ 2020-Nov-29 12:41:35 ] Flashing mdtp_a partition...
+[ 2020-Nov-29 12:41:36 ] mdtp_a partition were flashed!
+[ 2020-Nov-29 12:41:37 ] Flashing mdtpsecapp_a partition...
+[ 2020-Nov-29 12:41:37 ] mdtpsecapp_a partition were flashed!
+[ 2020-Nov-29 12:41:38 ] Flashing modem_a partition...
+[ 2020-Nov-29 12:41:39 ] modem_a partition were flashed!
+[ 2020-Nov-29 12:41:40 ] Flashing nvdef_a partition...
+[ 2020-Nov-29 12:41:41 ] nvdef_a partition were flashed!
+[ 2020-Nov-29 12:41:42 ] Flashing pmic_a partition...
+[ 2020-Nov-29 12:41:42 ] pmic_a partition were flashed!
+[ 2020-Nov-29 12:41:43 ] Flashing rpm_a partition...
+[ 2020-Nov-29 12:41:44 ] rpm_a partition were flashed!
+[ 2020-Nov-29 12:41:45 ] Flashing splash_a partition...
+[ 2020-Nov-29 12:41:45 ] splash_a partition were flashed!
+[ 2020-Nov-29 12:41:46 ] Flashing system_a partition...
+[ 2020-Nov-29 12:42:51 ] system_a partition were flashed!
+[ 2020-Nov-29 12:42:52 ] Flashing systeminfo_a partition...
+[ 2020-Nov-29 12:42:59 ] systeminfo_a partition were flashed!
+[ 2020-Nov-29 12:42:59 ] Flashing tz_a partition...
+[ 2020-Nov-29 12:43:00 ] tz_a partition were flashed!
+[ 2020-Nov-29 12:43:01 ] Flashing vendor_a partition...
+[ 2020-Nov-29 12:43:18 ] vendor_a partition were flashed!
+[ 2020-Nov-29 12:43:19 ] Flashing vbmeta_a partition...
+[ 2020-Nov-29 12:43:20 ] vbmeta_a partition were flashed!
+[ 2020-Nov-29 12:43:21 ] Erasing tmp files from phone
+[ 2020-Nov-29 12:43:21 ] Formatting ssd partition
+[ 2020-Nov-29 12:43:22 ] Formatting misc partition
+[ 2020-Nov-29 12:43:23 ] Formatting sti partition
+[ 2020-Nov-29 12:43:24 ] Formatting ddr partition
+[ 2020-Nov-29 12:43:25 ] Formatting securefs partition
+[ 2020-Nov-29 12:43:26 ] Formatting box partition
+[ 2020-Nov-29 12:43:27 ] Formatting boot_b partition
+[ 2020-Nov-29 12:43:28 ] Setting 'A' as active slot...
+[ 2020-Nov-29 12:43:29 ] Factory reset
+[ 2020-Nov-29 12:43:29 ] Flashing done! Reboot phone...

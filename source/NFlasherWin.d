@@ -18,6 +18,9 @@ import gtk.FileChooserDialog;
 import gtk.MessageDialog;
 import gtk.AboutDialog;
 
+import gtk.CheckButton;
+import gtk.ToggleButton;
+
 import gdkpixbuf.Pixbuf;
 
 import gtk.Builder;
@@ -59,6 +62,8 @@ class NFlasherWin : Window {
         set_rom_btn = cast(Button)ui_builder.getObject("set_rom_btn");
         flash_btn = cast(Button)ui_builder.getObject("flash_btn");
 
+        vbmeta_btn = cast(CheckButton)ui_builder.getObject("vbmeta_check");
+
         adb_en = cast(Entry)ui_builder.getObject("adb_en");
         rom_en = cast(Entry)ui_builder.getObject("rom_en");
     
@@ -82,6 +87,8 @@ class NFlasherWin : Window {
         set_adb_btn.addOnClicked(&setEntry);
         set_rom_btn.addOnClicked(&setEntry);
         flash_btn.addOnClicked(&flashStart);
+
+        vbmeta_btn.addOnToggled(&togleChanged);
 
         addOnDestroy(&quitApp);
     }
@@ -123,6 +130,11 @@ class NFlasherWin : Window {
         open_folder.destroy();
     }
 
+    /// @brief Making vbmeta record
+    protected void togleChanged(ToggleButton t) @trusted {
+        log_v.makeRecord("vbmeta flashing is : " ~ (t.getActive() == true ? "YES" : "NO"));
+    } 
+
     /// @brief Slot for open AboutDialog
     protected void showAbout(Button pressed) @trusted {
         AboutDialog about = new AboutDialog();
@@ -158,7 +170,7 @@ class NFlasherWin : Window {
         flasher = new shared PhoneFlasher();
 
         /// Check rom
-        if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText())) {
+        if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText(), vbmeta_btn.getActive())) {
             MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
                 GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
 
@@ -176,7 +188,7 @@ class NFlasherWin : Window {
             rom_en.setSensitive(false);
 
             /// Spawn flashing process
-            child_tid = spawn(&flasher.startFlashing, thisTid);
+            child_tid = spawn(&flasher.startFlashing, thisTid, vbmeta_btn.getActive());
 
             /// Ui updater connect
             ui_updater = new Timeout(500, &updateUI);
@@ -214,6 +226,8 @@ class NFlasherWin : Window {
     private Button set_rom_btn;
     /// @brief flash_btn Button for flashing starting
     private Button flash_btn;
+
+    private CheckButton vbmeta_btn;
 
     /// @brief adb_en Entry for ADB PATH setting
     private Entry adb_en;
