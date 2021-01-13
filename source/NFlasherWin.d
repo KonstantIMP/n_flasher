@@ -63,10 +63,15 @@ class NFlasherWin : Window {
         flash_btn = cast(Button)ui_builder.getObject("flash_btn");
 
         vbmeta_btn = cast(CheckButton)ui_builder.getObject("vbmeta_check");
+        reboot_btn = cast(CheckButton)ui_builder.getObject("reboot_check");
 
         adb_en = cast(Entry)ui_builder.getObject("adb_en");
         rom_en = cast(Entry)ui_builder.getObject("rom_en");
     
+        slot_btn = cast(ToggleButton)ui_builder.getObject("slot_btn");
+
+        svb_flash_btn = cast(Button)ui_builder.getObject("svb_flash_btn");
+
         log_v = new LogViewer(ui_builder, "log_sw");
 
         try {
@@ -88,7 +93,7 @@ class NFlasherWin : Window {
         set_rom_btn.addOnClicked(&setEntry);
         flash_btn.addOnClicked(&flashStart);
 
-        vbmeta_btn.addOnToggled(&togleChanged);
+        vbmeta_btn.addOnToggled(&vbmetaChanged);
 
         addOnDestroy(&quitApp);
     }
@@ -113,7 +118,7 @@ class NFlasherWin : Window {
     protected void setEntry(Button pressed) @trusted {
         FileChooserDialog open_folder = new FileChooserDialog((pressed == set_adb_btn ? "Set ADB tools path" : "Set stock ROM path"),
                                                                 this, FileChooserAction.SELECT_FOLDER, null, null);
-        int responce = open_folder.run();
+        immutable int responce = open_folder.run();
 
         if(responce == ResponseType.OK) {
             if(pressed == set_adb_btn) {
@@ -131,7 +136,7 @@ class NFlasherWin : Window {
     }
 
     /// @brief Making vbmeta record
-    protected void togleChanged(ToggleButton t) @trusted {
+    protected void vbmetaChanged(ToggleButton t) @trusted {
         log_v.makeRecord("vbmeta flashing is : " ~ (t.getActive() == true ? "YES" : "NO"));
     } 
 
@@ -227,12 +232,18 @@ class NFlasherWin : Window {
     /// @brief flash_btn Button for flashing starting
     private Button flash_btn;
 
+    private Button svb_flash_btn;
+
     private CheckButton vbmeta_btn;
+
+    private CheckButton reboot_btn;
 
     /// @brief adb_en Entry for ADB PATH setting
     private Entry adb_en;
     /// @brief rom_en Entry for ROM PATH setting
     private Entry rom_en;
+
+    private ToggleButton slot_btn;
 
     /// @brief ui_builder UI builder object
     private Builder ui_builder;
