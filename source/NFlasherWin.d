@@ -94,6 +94,9 @@ class NFlasherWin : Window {
         flash_btn.addOnClicked(&flashStart);
 
         vbmeta_btn.addOnToggled(&vbmetaChanged);
+        reboot_btn.addOnToggled(&rebootChanged);
+
+        slot_btn.addOnToggled(&slotChanged);
 
         addOnDestroy(&quitApp);
     }
@@ -139,6 +142,14 @@ class NFlasherWin : Window {
     protected void vbmetaChanged(ToggleButton t) @trusted {
         log_v.makeRecord("vbmeta flashing is : " ~ (t.getActive() == true ? "YES" : "NO"));
     } 
+
+    protected void rebootChanged(ToggleButton t) @trusted {
+        log_v.makeRecord("Reboot after flashing : " ~ (t.getActive() == true ? "YES" : "NO"));
+    }
+
+    protected void slotChanged(ToggleButton t) @trusted {
+        log_v.makeRecord("Slot for flashing : " ~ (t.getActive() == true ? "A" : "B"));
+    }
 
     /// @brief Slot for open AboutDialog
     protected void showAbout(Button pressed) @trusted {

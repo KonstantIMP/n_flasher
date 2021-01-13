@@ -1,0 +1,27 @@
+[ 2021-Jan-13 11:52:58 ] Program started
+[ 2021-Jan-13 11:52:58 ] Your OS type : linux
+[ 2021-Jan-13 11:52:58 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 11:53:01 ] Reboot after flashing : NO
+[ 2021-Jan-13 11:53:02 ] Reboot after flashing : YES
+[ 2021-Jan-13 11:53:45 ] Program started
+[ 2021-Jan-13 11:53:45 ] Your OS type : linux
+[ 2021-Jan-13 11:53:45 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 11:53:49 ] Reboot after flashing : NO
+[ 2021-Jan-13 11:53:49 ] Reboot after flashing : YES
+[ 2021-Jan-13 11:53:50 ] vbmeta flashing is : YES
+[ 2021-Jan-13 11:53:51 ] vbmeta flashing is : NO
+[ 2021-Jan-13 11:54:56 ] Program closed
+[ 2021-Jan-13 11:56:07 ] Program started
+[ 2021-Jan-13 11:56:07 ] Your OS type : linux
+[ 2021-Jan-13 11:56:07 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 11:56:08 ] Slot for flashing : A
+[ 2021-Jan-13 11:56:09 ] Slot for flashing : B
+[ 2021-Jan-13 11:56:10 ] Slot for flashing : A
+[ 2021-Jan-13 11:56:11 ] Slot for flashing : B
+[ 2021-Jan-13 11:56:13 ] Slot for flashing : A
+[ 2021-Jan-13 11:56:13 ] Slot for flashing : B
+[ 2021-Jan-13 11:56:13 ] Slot for flashing : A
+[ 2021-Jan-13 11:56:14 ] Slot for flashing : B
+[ 2021-Jan-13 11:56:17 ] vbmeta flashing is : YES
+[ 2021-Jan-13 11:56:18 ] vbmeta flashing is : NO
+[ 2021-Jan-13 11:56:22 ] Program closed
