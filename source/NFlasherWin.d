@@ -98,6 +98,8 @@ class NFlasherWin : Window {
 
         slot_btn.addOnToggled(&slotChanged);
 
+        svb_flash_btn.addOnClicked(&flasSVBhStart);
+
         addOnDestroy(&quitApp);
     }
 
@@ -148,7 +150,7 @@ class NFlasherWin : Window {
     }
 
     protected void slotChanged(ToggleButton t) @trusted {
-        log_v.makeRecord("Slot for flashing : " ~ (t.getActive() == true ? "A" : "B"));
+        log_v.makeRecord("Slot for flashing : " ~ (t.getActive() == true ? "B" : "A"));
     }
 
     /// @brief Slot for open AboutDialog
@@ -204,7 +206,36 @@ class NFlasherWin : Window {
             rom_en.setSensitive(false);
 
             /// Spawn flashing process
-            child_tid = spawn(&flasher.startFlashing, thisTid, vbmeta_btn.getActive());
+            child_tid = spawn(&flasher.startFlashing, thisTid, vbmeta_btn.getActive(), reboot_btn.getActive(), slot_btn.getActive());
+
+            /// Ui updater connect
+            ui_updater = new Timeout(500, &updateUI);
+        }
+    }
+
+    protected void flasSVBhStart(Button _pressed) @trusted {
+        flasher = new shared PhoneFlasher();
+
+        /// Check rom
+        if(flasher.checkSVBValue(log_v, adb_en.getText(), rom_en.getText())) {
+            MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
+                GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
+
+            /// Warning user
+            if(are_you_sure.run() != ResponseType.YES) {
+                are_you_sure.destroy(); return;
+            } are_you_sure.destroy();
+
+            /// Disable buttons
+            set_adb_btn.setSensitive(false);
+            set_rom_btn.setSensitive(false);
+            flash_btn.setSensitive(false);
+
+            adb_en.setSensitive(false);
+            rom_en.setSensitive(false);
+
+            /// Spawn flashing process
+            child_tid = spawn(&flasher.startSVBFlashing, thisTid, reboot_btn.getActive(), slot_btn.getActive());
 
             /// Ui updater connect
             ui_updater = new Timeout(500, &updateUI);
