@@ -200,10 +200,14 @@ class NFlasherWin : Window {
             /// Disable buttons
             set_adb_btn.setSensitive(false);
             set_rom_btn.setSensitive(false);
+            svb_flash_btn.setSensitive(false);
             flash_btn.setSensitive(false);
 
             adb_en.setSensitive(false);
             rom_en.setSensitive(false);
+
+            vbmeta_btn.setSensitive(false);
+            reboot_btn.setSensitive(false);
 
             /// Spawn flashing process
             child_tid = spawn(&flasher.startFlashing, thisTid, vbmeta_btn.getActive(), reboot_btn.getActive(), slot_btn.getActive());
@@ -229,10 +233,14 @@ class NFlasherWin : Window {
             /// Disable buttons
             set_adb_btn.setSensitive(false);
             set_rom_btn.setSensitive(false);
+            svb_flash_btn.setSensitive(false);
             flash_btn.setSensitive(false);
 
             adb_en.setSensitive(false);
             rom_en.setSensitive(false);
+
+            vbmeta_btn.setSensitive(false);
+            reboot_btn.setSensitive(false);
 
             /// Spawn flashing process
             child_tid = spawn(&flasher.startSVBFlashing, thisTid, reboot_btn.getActive(), slot_btn.getActive());
@@ -248,10 +256,14 @@ class NFlasherWin : Window {
             (int code) {
                 set_adb_btn.setSensitive(true);
                 set_rom_btn.setSensitive(true);
+                svb_flash_btn.setSensitive(true);
                 flash_btn.setSensitive(true);
 
                 adb_en.setSensitive(true);
                 rom_en.setSensitive(true);
+
+                vbmeta_btn.setSensitive(true);
+                reboot_btn.setSensitive(true);
 
                 ui_updater.stop();
             },

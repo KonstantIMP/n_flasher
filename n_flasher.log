@@ -1,27 +1,143 @@
-[ 2021-Jan-13 11:52:58 ] Program started
-[ 2021-Jan-13 11:52:58 ] Your OS type : linux
-[ 2021-Jan-13 11:52:58 ] Fastboot tools must be at '/usr/bin/'
-[ 2021-Jan-13 11:53:01 ] Reboot after flashing : NO
-[ 2021-Jan-13 11:53:02 ] Reboot after flashing : YES
-[ 2021-Jan-13 11:53:45 ] Program started
-[ 2021-Jan-13 11:53:45 ] Your OS type : linux
-[ 2021-Jan-13 11:53:45 ] Fastboot tools must be at '/usr/bin/'
-[ 2021-Jan-13 11:53:49 ] Reboot after flashing : NO
-[ 2021-Jan-13 11:53:49 ] Reboot after flashing : YES
-[ 2021-Jan-13 11:53:50 ] vbmeta flashing is : YES
-[ 2021-Jan-13 11:53:51 ] vbmeta flashing is : NO
-[ 2021-Jan-13 11:54:56 ] Program closed
-[ 2021-Jan-13 11:56:07 ] Program started
-[ 2021-Jan-13 11:56:07 ] Your OS type : linux
-[ 2021-Jan-13 11:56:07 ] Fastboot tools must be at '/usr/bin/'
-[ 2021-Jan-13 11:56:08 ] Slot for flashing : A
-[ 2021-Jan-13 11:56:09 ] Slot for flashing : B
-[ 2021-Jan-13 11:56:10 ] Slot for flashing : A
-[ 2021-Jan-13 11:56:11 ] Slot for flashing : B
-[ 2021-Jan-13 11:56:13 ] Slot for flashing : A
-[ 2021-Jan-13 11:56:13 ] Slot for flashing : B
-[ 2021-Jan-13 11:56:13 ] Slot for flashing : A
-[ 2021-Jan-13 11:56:14 ] Slot for flashing : B
-[ 2021-Jan-13 11:56:17 ] vbmeta flashing is : YES
-[ 2021-Jan-13 11:56:18 ] vbmeta flashing is : NO
-[ 2021-Jan-13 11:56:22 ] Program closed
+[ 2021-Jan-13 13:35:25 ] Program started
+[ 2021-Jan-13 13:35:25 ] Your OS type : linux
+[ 2021-Jan-13 13:35:25 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 13:35:33 ] Slot for flashing : B
+[ 2021-Jan-13 13:35:36 ] Reboot after flashing : NO
+[ 2021-Jan-13 13:35:40 ] Program closed
+[ 2021-Jan-13 17:13:21 ] Program started
+[ 2021-Jan-13 17:13:21 ] Your OS type : linux
+[ 2021-Jan-13 17:13:21 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 17:13:27 ] Setting stock ROM path as : /home/kimp/Downloads/Resurrection_Remix_8.6.5_arm64-ab_vanilla
+[ 2021-Jan-13 17:13:28 ] Checking ADB tools path
+[ 2021-Jan-13 17:13:28 ] ADB found : OK
+[ 2021-Jan-13 17:13:28 ] Fastboot found : OK
+[ 2021-Jan-13 17:13:28 ] Checking stock ROM path
+[ 2021-Jan-13 17:13:28 ] boot.img found : OK
+[ 2021-Jan-13 17:13:28 ] system.img found : OK
+[ 2021-Jan-13 17:13:28 ] vendor.img found : OK
+[ 2021-Jan-13 17:13:30 ] Flashing started. Dont't touch your device!!!
+[ 2021-Jan-13 17:13:31 ] Full ADB path is : /usr/bin/adb
+[ 2021-Jan-13 17:13:31 ] Full fastboot path is : sudo /usr/bin/fastboot
+[ 2021-Jan-13 17:13:32 ] Reboot to bootloader. Waiting 10 seconds...
+[ 2021-Jan-13 17:13:42 ] Formatting system partition
+[ 2021-Jan-13 17:13:45 ] Formatting vendor partition
+[ 2021-Jan-13 17:13:45 ] Flashing boot_a partition...
+[ 2021-Jan-13 17:13:48 ] boot_a partition were flashed!
+[ 2021-Jan-13 17:13:49 ] Flashing system_a partition...
+[ 2021-Jan-13 17:14:33 ] system_a partition were flashed!
+[ 2021-Jan-13 17:14:34 ] Flashing vendor_a partition...
+[ 2021-Jan-13 17:14:57 ] vendor_a partition were flashed!
+[ 2021-Jan-13 17:14:58 ] Erasing tmp files from phone
+[ 2021-Jan-13 17:14:58 ] Formatting ssd partition
+[ 2021-Jan-13 17:14:59 ] Formatting misc partition
+[ 2021-Jan-13 17:15:00 ] Formatting sti partition
+[ 2021-Jan-13 17:15:01 ] Formatting ddr partition
+[ 2021-Jan-13 17:15:02 ] Formatting securefs partition
+[ 2021-Jan-13 17:15:03 ] Formatting box partition
+[ 2021-Jan-13 17:15:04 ] Formatting boot_b partition
+[ 2021-Jan-13 17:15:05 ] Setting 'A' as active slot...
+[ 2021-Jan-13 17:15:06 ] Factory reset
+[ 2021-Jan-13 17:15:06 ] Flashing done! Reboot phone...
+[ 2021-Jan-13 17:23:54 ] Checking ADB tools path
+[ 2021-Jan-13 17:23:54 ] ADB found : OK
+[ 2021-Jan-13 17:23:54 ] Fastboot found : OK
+[ 2021-Jan-13 17:23:54 ] Checking stock ROM path
+[ 2021-Jan-13 17:23:54 ] /home/kimp/Downloads/Resurrection_Remix_8.6.5_arm64-ab_vanilla/boot.img didn't found : ERROR
+[ 2021-Jan-13 17:24:03 ] Setting stock ROM path as : /home/kimp/Downloads/AOSP
+[ 2021-Jan-13 17:24:04 ] Checking ADB tools path
+[ 2021-Jan-13 17:24:04 ] ADB found : OK
+[ 2021-Jan-13 17:24:04 ] Fastboot found : OK
+[ 2021-Jan-13 17:24:04 ] Checking stock ROM path
+[ 2021-Jan-13 17:24:04 ] boot.img found : OK
+[ 2021-Jan-13 17:24:04 ] system.img found : OK
+[ 2021-Jan-13 17:24:04 ] vendor.img found : OK
+[ 2021-Jan-13 17:24:06 ] Flashing started. Dont't touch your device!!!
+[ 2021-Jan-13 17:24:06 ] Full ADB path is : /usr/bin/adb
+[ 2021-Jan-13 17:24:07 ] Full fastboot path is : sudo /usr/bin/fastboot
+[ 2021-Jan-13 17:24:08 ] Reboot to bootloader. Waiting 10 seconds...
+[ 2021-Jan-13 17:24:18 ] Formatting system partition
+[ 2021-Jan-13 17:24:23 ] Formatting vendor partition
+[ 2021-Jan-13 17:24:23 ] Flashing boot_a partition...
+[ 2021-Jan-13 17:24:26 ] boot_a partition were flashed!
+[ 2021-Jan-13 17:24:27 ] Flashing system_a partition...
+[ 2021-Jan-13 17:25:50 ] system_a partition were flashed!
+[ 2021-Jan-13 17:25:51 ] Flashing vendor_a partition...
+[ 2021-Jan-13 17:26:13 ] vendor_a partition were flashed!
+[ 2021-Jan-13 17:26:14 ] Erasing tmp files from phone
+[ 2021-Jan-13 17:26:15 ] Formatting ssd partition
+[ 2021-Jan-13 17:26:16 ] Formatting misc partition
+[ 2021-Jan-13 17:26:17 ] Formatting sti partition
+[ 2021-Jan-13 17:26:18 ] Formatting ddr partition
+[ 2021-Jan-13 17:26:19 ] Formatting securefs partition
+[ 2021-Jan-13 17:26:20 ] Formatting box partition
+[ 2021-Jan-13 17:26:21 ] Formatting boot_b partition
+[ 2021-Jan-13 17:26:22 ] Setting 'A' as active slot...
+[ 2021-Jan-13 17:26:23 ] Factory reset
+[ 2021-Jan-13 17:26:23 ] Flashing done! Reboot phone...
+[ 2021-Jan-13 23:41:25 ] Program started
+[ 2021-Jan-13 23:41:25 ] Your OS type : linux
+[ 2021-Jan-13 23:41:25 ] Fastboot tools must be at '/usr/bin/'
+[ 2021-Jan-13 23:41:34 ] Setting stock ROM path as : /home/kimp/Downloads/LineageOS18.1
+[ 2021-Jan-13 23:41:34 ] Checking ADB tools path
+[ 2021-Jan-13 23:41:34 ] ADB found : OK
+[ 2021-Jan-13 23:41:34 ] Fastboot found : OK
+[ 2021-Jan-13 23:41:34 ] Checking stock ROM path
+[ 2021-Jan-13 23:41:34 ] boot.img found : OK
+[ 2021-Jan-13 23:41:34 ] system.img found : OK
+[ 2021-Jan-13 23:41:34 ] vendor.img found : OK
+[ 2021-Jan-13 23:41:36 ] Flashing started. Dont't touch your device!!!
+[ 2021-Jan-13 23:41:37 ] Full ADB path is : /usr/bin/adb
+[ 2021-Jan-13 23:41:37 ] Full fastboot path is : sudo /usr/bin/fastboot
+[ 2021-Jan-13 23:41:38 ] Reboot to bootloader. Waiting 10 seconds...
+[ 2021-Jan-13 23:41:45 ] Formatting system partition
+[ 2021-Jan-13 23:41:50 ] Formatting vendor partition
+[ 2021-Jan-13 23:41:51 ] Flashing boot_a partition...
+[ 2021-Jan-13 23:41:52 ] boot_a partition were flashed!
+[ 2021-Jan-13 23:41:53 ] Flashing system_a partition...
+[ 2021-Jan-13 23:43:06 ] system_a partition were flashed!
+[ 2021-Jan-13 23:43:07 ] Flashing vendor_a partition...
+[ 2021-Jan-13 23:43:27 ] vendor_a partition were flashed!
+[ 2021-Jan-13 23:43:28 ] Erasing tmp files from phone
+[ 2021-Jan-13 23:43:28 ] Formatting ssd partition
+[ 2021-Jan-13 23:43:29 ] Formatting misc partition
+[ 2021-Jan-13 23:43:30 ] Formatting sti partition
+[ 2021-Jan-13 23:43:31 ] Formatting ddr partition
+[ 2021-Jan-13 23:43:32 ] Formatting securefs partition
+[ 2021-Jan-13 23:43:33 ] Formatting box partition
+[ 2021-Jan-13 23:43:34 ] Formatting boot_b partition
+[ 2021-Jan-13 23:43:35 ] Setting 'A' as active slot...
+[ 2021-Jan-13 23:43:36 ] Factory reset
+[ 2021-Jan-13 23:43:36 ] Flashing done! Reboot phone...
+[ 2021-Jan-13 23:50:52 ] Reboot after flashing : NO
+[ 2021-Jan-13 23:51:16 ] Reboot after flashing : YES
+[ 2021-Jan-13 23:51:54 ] Checking ADB tools path
+[ 2021-Jan-13 23:51:54 ] ADB found : OK
+[ 2021-Jan-13 23:51:54 ] Fastboot found : OK
+[ 2021-Jan-13 23:51:54 ] Checking stock ROM path
+[ 2021-Jan-13 23:51:54 ] boot.img found : OK
+[ 2021-Jan-13 23:51:54 ] system.img found : OK
+[ 2021-Jan-13 23:51:54 ] vendor.img found : OK
+[ 2021-Jan-13 23:51:56 ] Flashing started. Dont't touch your device!!!
+[ 2021-Jan-13 23:51:57 ] Full ADB path is : /usr/bin/adb
+[ 2021-Jan-13 23:51:57 ] Full fastboot path is : sudo /usr/bin/fastboot
+[ 2021-Jan-13 23:51:58 ] Reboot to bootloader. Waiting 10 seconds...
+[ 2021-Jan-13 23:52:08 ] Formatting system partition
+[ 2021-Jan-13 23:52:19 ] Formatting vendor partition
+[ 2021-Jan-13 23:52:19 ] Flashing boot_a partition...
+[ 2021-Jan-13 23:52:20 ] boot_a partition were flashed!
+[ 2021-Jan-13 23:52:21 ] Flashing system_a partition...
+[ 2021-Jan-13 23:53:35 ] system_a partition were flashed!
+[ 2021-Jan-13 23:53:36 ] Flashing vendor_a partition...
+[ 2021-Jan-13 23:53:56 ] vendor_a partition were flashed!
+[ 2021-Jan-13 23:53:57 ] Erasing tmp files from phone
+[ 2021-Jan-13 23:53:57 ] Formatting ssd partition
+[ 2021-Jan-13 23:53:58 ] Formatting misc partition
+[ 2021-Jan-13 23:53:59 ] Formatting sti partition
+[ 2021-Jan-13 23:54:00 ] Formatting ddr partition
+[ 2021-Jan-13 23:54:01 ] Formatting securefs partition
+[ 2021-Jan-13 23:54:02 ] Formatting box partition
+[ 2021-Jan-13 23:54:03 ] Formatting boot_b partition
+[ 2021-Jan-13 23:54:04 ] Setting 'A' as active slot...
+[ 2021-Jan-13 23:54:05 ] Factory reset
+[ 2021-Jan-13 23:54:05 ] Flashing done! Reboot phone...
+[ 2021-Jan-13 23:54:07 ] Program closed
