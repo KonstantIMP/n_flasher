@@ -4,6 +4,7 @@ gnome = import('gnome')
 
 n_flasher_sources = [
     'source/app.d',
+    'source/Defines.d',
     'source/LogViewer.d',
     'source/NFlasherWin.d',
     'source/PhoneFlasher.d'
