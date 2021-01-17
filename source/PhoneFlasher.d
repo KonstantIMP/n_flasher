@@ -258,10 +258,7 @@ synchronized class PhoneFlasher {
 
         send(parent, "Formatting box partition");
         runCommand(full_fastboot ~ " erase box"); send(parent, cast(double)(0.98));
-
-        send(parent, "Formatting boot_" ~ (is_b == true ? "a" : "b") ~ " partition");
-        runCommand(full_fastboot ~ " erase boot_" ~ (is_b == true ? "a" : "b")); send(parent, cast(double)(0.99));
-
+        
         send(parent, "Setting \'A\' as active slot...");
         runCommand(full_fastboot ~ " --set-active=" ~ (is_b == true ? "b" : "a"));
 
@@ -338,9 +335,6 @@ synchronized class PhoneFlasher {
 
         send(parent, "Formatting box partition");
         runCommand(full_fastboot ~ " erase box"); send(parent, cast(double)(0.98));
-
-        send(parent, "Formatting boot_" ~ (is_b == true ? "a" : "b") ~ " partition");
-        runCommand(full_fastboot ~ " erase boot_" ~ (is_b == true ? "a" : "b")); send(parent, cast(double)(0.99));
 
         send(parent, "Setting \'A\' as active slot...");
         runCommand(full_fastboot ~ " --set-active=" ~ (is_b == true ? "b" : "a"));
