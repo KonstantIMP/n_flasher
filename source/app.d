@@ -23,20 +23,20 @@ int main( string [] args) {
 	Main.init(args);
 
     /// Creating and register app
-    Application app = new Application("org.nokia.flasher.kimp", GApplicationFlags.FLAGS_NONE);
+    Application app = new Application("org.n_flasher.kimp", GApplicationFlags.FLAGS_NONE);
     
     /// When application is ready
     app.addOnActivate((gio.Application.Application) {
         /// Loading UI from .glade file
         Builder bc = new Builder();
         try {
-            if(os == OS.linux) bc.addFromResource("/kimp/ui/NFlasherWin.glade");
-            else bc.addFromFile("res\\NFlasherWin.glade");
+            version(linux) bc.addFromResource("/kimp/ui/NFlasherWin.glade");
+            else bc.addFromFile("..\\res\\NFlasherWin.glade");
         }
         catch (Exception) {
             /// Error while loading .glade file
             MessageDialog err = new MessageDialog(null, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
-                    GtkMessageType.ERROR, GtkButtonsType.OK, "Hello!\nThere was a problem loading resources!\nReinstall program to solve program...", null);
+                    GtkMessageType.ERROR, GtkButtonsType.OK, true, "<span size='x-large'>Woof!</span>\nIt is a <span underline='single' font_weight='bold'>critical error</span> with resource loaging.\nTo solve it - reinstall the program  <span size='small'>(╯°^°)╯┻━┻</span>", null);
             app.addWindow(err); err.showAll(); err.run();
             err.destroy();
 
