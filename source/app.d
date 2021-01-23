@@ -43,7 +43,7 @@ int main( string [] args) {
         try {
             version(linux) {
                 loadAllLocales("./locale");
-                bc.addFromResource("/kimp/u/NFlasherWin.glade");
+                bc.addFromResource("/kimp/ui/NFlasherWin.glade");
             }
             else bc.addFromFile("..\\res\\NFlasherWin.glade");
         }
@@ -56,7 +56,7 @@ int main( string [] args) {
 
             exit(-1);
         }
-        
+
         /// Create window
         NFlasherWin win = new NFlasherWin(bc, "main_window");
         win.showAll(); app.addWindow(win);
