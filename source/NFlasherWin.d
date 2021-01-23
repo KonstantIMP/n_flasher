@@ -199,16 +199,7 @@ class NFlasherWin : Window {
             } are_you_sure.destroy();
 
             /// Disable buttons
-            set_adb_btn.setSensitive(false);
-            set_rom_btn.setSensitive(false);
-            svb_flash_btn.setSensitive(false);
-            flash_btn.setSensitive(false);
-
-            adb_en.setSensitive(false);
-            rom_en.setSensitive(false);
-
-            vbmeta_btn.setSensitive(false);
-            reboot_btn.setSensitive(false);
+            setUISentensive(false);
 
             /// Spawn flashing process
             child_tid = spawn(&flasher.startFlashing, thisTid, vbmeta_btn.getActive(), reboot_btn.getActive(), slot_btn.getActive());
@@ -232,16 +223,7 @@ class NFlasherWin : Window {
             } are_you_sure.destroy();
 
             /// Disable buttons
-            set_adb_btn.setSensitive(false);
-            set_rom_btn.setSensitive(false);
-            svb_flash_btn.setSensitive(false);
-            flash_btn.setSensitive(false);
-
-            adb_en.setSensitive(false);
-            rom_en.setSensitive(false);
-
-            vbmeta_btn.setSensitive(false);
-            reboot_btn.setSensitive(false);
+            setUISentensive(false);
 
             /// Spawn flashing process
             child_tid = spawn(&flasher.startSVBFlashing, thisTid, reboot_btn.getActive(), slot_btn.getActive());
@@ -255,16 +237,7 @@ class NFlasherWin : Window {
     protected bool updateUI() @trusted {
         receiveTimeout(dur!("msecs")(50),
             (int code) {
-                set_adb_btn.setSensitive(true);
-                set_rom_btn.setSensitive(true);
-                svb_flash_btn.setSensitive(true);
-                flash_btn.setSensitive(true);
-
-                adb_en.setSensitive(true);
-                rom_en.setSensitive(true);
-
-                vbmeta_btn.setSensitive(true);
-                reboot_btn.setSensitive(true);
+                setUISentensive(true);
 
                 ui_updater.stop();
             },
@@ -275,6 +248,26 @@ class NFlasherWin : Window {
             });
 
         return true;
+    }
+
+    private void setUISentensive(bool value) {
+        svb_flash_btn.setSensitive(value);
+        
+        set_adb_btn.setSensitive(value);
+        set_rom_btn.setSensitive(value);
+
+        vbmeta_btn.setSensitive(value);
+        reboot_btn.setSensitive(value);
+
+        vbmeta_btn.setSensitive(value);
+        reboot_btn.setSensitive(value);
+
+        flash_btn.setSensitive(value);
+
+        slot_btn.setSensitive(value);
+
+        adb_en.setSensitive(value);
+        rom_en.setSensitive(value);
     }
 
     /// @brief flash_pb Flashing process %
