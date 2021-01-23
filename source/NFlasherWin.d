@@ -76,8 +76,8 @@ class NFlasherWin : Window {
         log_v = new LogViewer(ui_builder, "log_sw");
 
         try {
-            if(os == OS.linux) setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
-            else setIcon(new Pixbuf("res\\n_flasher.png", 64, 64, true));
+            version(linux) setIcon(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 64, 64, true));
+            else setIcon(new Pixbuf("..\\res\\n_flasher.png", 64, 64, true));
         }
         catch(Exception) {
             MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,

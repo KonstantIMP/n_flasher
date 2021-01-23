@@ -56,8 +56,7 @@ int main( string [] args) {
 
             exit(-1);
         }
-        //"<span size='x-large'>Woof!</span>\nIt is a <span underline='single' font_weight='bold'>critical error</span> with resource loaging.\nTo solve it - reinstall the program  <span size='small'>(╯°^°)╯┻━┻</span>"
-
+        
         /// Create window
         NFlasherWin win = new NFlasherWin(bc, "main_window");
         win.showAll(); app.addWindow(win);
