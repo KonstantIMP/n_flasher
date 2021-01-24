@@ -42,6 +42,8 @@ import std.stdio;
 
 import core.stdc.stdlib;
 
+import djtext.core;
+
 /// @brief  NFlasherWin Main window widget
 ///
 /// Contains all UI elements
@@ -81,7 +83,7 @@ class NFlasherWin : Window {
         }
         catch(Exception) {
             MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
-                    GtkMessageType.WARNING, GtkButtonsType.OK, "Hello!\nThere was a problem(not critical) loading resources!\nReinstall program to solve program...", null);
+                    GtkMessageType.WARNING, GtkButtonsType.OK, true, "<span size='x-large'>" ~ _("Woof!") ~ "</span>\n" ~ _("It is a") ~ " <span underline='single' font_weight='bold'>" ~ _("NON critical error") ~ "</span> " ~ _("with resource loaging.") ~ "\n" ~ _("To solve it - reinstall the program") ~ "  <span size='small'>(╯°^°)╯┻━┻</span>", null);
             war.showAll(); war.run(); war.destroy();
         }
     }
@@ -107,36 +109,36 @@ class NFlasherWin : Window {
     /// @brief Setup start values for different platforms
     private void initValues() @trusted {
         log_v.logFilePath("n_flasher.log");
-        log_v.makeRecord("Program started");
+        log_v.makeRecord(_("Program started"));
 
-        if(os == OS.linux) {
-            log_v.makeRecord("Your OS type : linux");
-            log_v.makeRecord("Fastboot tools must be at \'/usr/bin/\'");
+        version(linux) {
+            log_v.makeRecord(_("Your OS type") ~ " : linux");
+            log_v.makeRecord(_("Fastboot tools must be at") ~ " \'/usr/bin/\'");
             adb_en.setText("/usr/bin/");
         } 
         else {
-            log_v.makeRecord("Your OS type : Windows");
-            log_v.makeRecord("You need manualy set path to fatsboot tools");
+            log_v.makeRecord(_("Your OS type") ~ " : Windows");
+            log_v.makeRecord(_("You need manualy set path to fatsboot tools"));
         }
     }
 
     /// @brief Slot for setting PATH for ADB and ROM
     protected void setEntry(Button pressed) @trusted {
-        FileChooserDialog open_folder = new FileChooserDialog((pressed == set_adb_btn ? "Set ADB tools path" : "Set stock ROM path"),
+        FileChooserDialog open_folder = new FileChooserDialog((pressed == set_adb_btn ? _("Set ADB tools path") : _("Set stock ROM path")),
                                                                 this, FileChooserAction.SELECT_FOLDER, null, null);
         immutable int responce = open_folder.run();
 
         if(responce == ResponseType.OK) {
             if(pressed == set_adb_btn) {
-                log_v.makeRecord("Setting ADB tools path as : " ~ open_folder.getFilename());
+                log_v.makeRecord(_("Setting ADB tools path as : ") ~ open_folder.getFilename());
                 adb_en.setText(open_folder.getFilename() ~ (os == OS.linux ? '/' : '\\'));
             }
             else {
-                log_v.makeRecord("Setting stock ROM path as : " ~ open_folder.getFilename());
+                log_v.makeRecord(_("Setting stock ROM path as : ") ~ open_folder.getFilename());
                 rom_en.setText(open_folder.getFilename() ~ (os == OS.linux ? '/' : '\\'));
             }
         }
-        else log_v.makeRecord("Setting " ~ (pressed == set_adb_btn ? "ADB tools " : "stock ROM ") ~ "path canceld");
+        else log_v.makeRecord(_("Setting ") ~ (pressed == set_adb_btn ? "ADB " : "ROM ") ~ _("path canceld"));
 
         open_folder.destroy();
     }

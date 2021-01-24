@@ -3,5 +3,16 @@
     "It is a" : "Произошла",
     "critical error" : "критическая ошибка",
     "with resource loaging." : "с загрузкой ресурсов.",
-    "To solve it - reinstall the program" : "Чтобы решить ее - переустановите программу"
+    "To solve it - reinstall the program" : "Чтобы решить ее - переустановите программу",
+    "Program started" : "Программа запущена",
+    "Your OS type" : "Тип вашей ОС",
+    "Fastboot tools must be at" : "Fastboot должен быть в",
+    "You need manualy set path to fatsboot tools" : "Вам нужно самим задать путь до fastboot",
+    "NON critical error" : "НЕ критическая ошибка",
+    "Setting ADB tools path as : " : "Установлен путь до ADB : ",
+    "Setting stock ROM path as : " : "Установлун путь до прошивки : ",
+    "Set ADB tools path" : "Установка пути до ADB",
+    "Set stock ROM path" : "Установка пути до прошивки",
+    "Setting " : "Установка пути до ",
+    "path canceld" : "отменена"
 }
