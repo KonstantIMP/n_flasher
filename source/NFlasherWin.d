@@ -86,6 +86,10 @@ class NFlasherWin : Window {
                     GtkMessageType.WARNING, GtkButtonsType.OK, true, "<span size='x-large'>" ~ _("Woof!") ~ "</span>\n" ~ _("It is a") ~ " <span underline='single' font_weight='bold'>" ~ _("NON critical error") ~ "</span> " ~ _("with resource loaging.") ~ "\n" ~ _("To solve it - reinstall the program") ~ "  <span size='small'>(╯°^°)╯┻━┻</span>", null);
             war.showAll(); war.run(); war.destroy();
         }
+
+        flash_pb.setText(_("Flashing..."));
+        flash_btn.setLabel(_("Flash"));
+        svb_flash_btn.setLabel(_("SVB flash"));
     }
 
     /// @brief Connect signals for buttons
@@ -145,15 +149,15 @@ class NFlasherWin : Window {
 
     /// @brief Making vbmeta record
     protected void vbmetaChanged(ToggleButton t) @trusted {
-        log_v.makeRecord("vbmeta flashing is : " ~ (t.getActive() == true ? "YES" : "NO"));
+        log_v.makeRecord(_("vbmeta flashing is : ") ~ (t.getActive() == true ? _("YES") : _("NO")));
     } 
 
     protected void rebootChanged(ToggleButton t) @trusted {
-        log_v.makeRecord("Reboot after flashing : " ~ (t.getActive() == true ? "YES" : "NO"));
+        log_v.makeRecord(_("Reboot after flashing : ") ~ (t.getActive() == true ? _("YES") : _("NO")));
     }
 
     protected void slotChanged(ToggleButton t) @trusted {
-        log_v.makeRecord("Slot for flashing : " ~ (t.getActive() == true ? "B" : "A"));
+        log_v.makeRecord(_("Slot for flashing : ") ~ (t.getActive() == true ? "B" : "A"));
     }
 
     /// @brief Slot for open AboutDialog
@@ -165,7 +169,7 @@ class NFlasherWin : Window {
         about.setProgramName("n_flasher");
         about.setLicenseType(GtkLicense.LGPL_3_0);
         about.setCopyright("Copyright © 2020, KonstantIMP");
-        about.setComments("Simple app for Nokia 7.1 flashing");
+        about.setComments(_("Simple app for Nokia 7.1 flashing"));
         about.setWebsite("https://github.com/KonstantIMP/n_flasher");
         
         try {
@@ -174,7 +178,7 @@ class NFlasherWin : Window {
         }
         catch(Exception) {
             MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
-                    GtkMessageType.WARNING, GtkButtonsType.OK, "Hello!\nThere was a problem(not critical) loading resources!\nReinstall program to solve program...", null);
+                    GtkMessageType.WARNING, GtkButtonsType.OK, true, "<span size='x-large'>" ~ _("Woof!") ~ "</span>\n" ~ _("It is a") ~ " <span underline='single' font_weight='bold'>" ~ _("NON critical error") ~ "</span> " ~ _("with resource loaging.") ~ "\n" ~ _("To solve it - reinstall the program") ~ "  <span size='small'>(╯°^°)╯┻━┻</span>", null);
             war.showAll(); war.run(); war.destroy();
         }
         
@@ -183,7 +187,7 @@ class NFlasherWin : Window {
 
     /// @brief Slot for app quit (make record in log)
     protected void quitApp(Widget window) @trusted {
-        log_v.makeRecord("Program closed");
+        log_v.makeRecord(_("Program closed"));
     }
 
     /// @brief Slot for flashing start
@@ -193,7 +197,7 @@ class NFlasherWin : Window {
         /// Check rom
         if(flasher.checkValue(log_v, adb_en.getText(), rom_en.getText(), vbmeta_btn.getActive())) {
             MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
-                GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
+                GtkMessageType.WARNING, GtkButtonsType.YES_NO, _("All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?"));
 
             /// Warning user
             if(are_you_sure.run() != ResponseType.YES) {
@@ -217,7 +221,7 @@ class NFlasherWin : Window {
         /// Check rom
         if(flasher.checkSVBValue(log_v, adb_en.getText(), rom_en.getText())) {
             MessageDialog are_you_sure = new MessageDialog(this, GtkDialogFlags.MODAL,
-                GtkMessageType.WARNING, GtkButtonsType.YES_NO, "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?");
+                GtkMessageType.WARNING, GtkButtonsType.YES_NO, _("All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?"));
 
             /// Warning user
             if(are_you_sure.run() != ResponseType.YES) {

@@ -14,5 +14,16 @@
     "Set ADB tools path" : "Установка пути до ADB",
     "Set stock ROM path" : "Установка пути до прошивки",
     "Setting " : "Установка пути до ",
-    "path canceld" : "отменена"
+    "path canceld" : "отменена",
+    "vbmeta flashing is : " : "Прошивка vbmeta : ",
+    "YES" : "Да",
+    "NO" : "Нет",
+    "Reboot after flashing : " : "Перезагрузка после прошивки : ",
+    "Slot for flashing : " : "Слот для прошивки : ",
+    "Simple app for Nokia 7.1 flashing" : "Приложение для прошивки Nokia 7.1",
+    "Program closed" : "Программа закрыта",
+    "Flashing..." : "Процесс прошивки...",
+    "Flash" : "Прошить",
+    "SVB flash" : "Прошить SVB",
+    "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?" : "Все действия с телефоном вы делаете на свой страх и риск! Создатель данного ПО не несет ответсвенность за ваши последующие действия. Продолжить?"
 }
