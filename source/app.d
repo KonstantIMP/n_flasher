@@ -4,7 +4,7 @@
 ///
 /// @license LGPLv3 (see LICENSE file)
 /// @author KonstantIMP
-/// @date 2020
+/// @date 2021
 module NFlasher;
 import NFlasherWin;
 
@@ -26,9 +26,6 @@ import djtext.core;
 int main( string [] args) {
     /// Getting current locale
     if(indexOf(to!(string)(setlocale(LC_ALL, "")), "ru_RU") != -1) defaultLocale = "ru_RU";
-    
-    /// Adding Russian)
-    debug { defaultLocale = "ru_RU"; }
 
     /// GTKd init
 	Main.init(args);

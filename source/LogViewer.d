@@ -4,7 +4,7 @@
 ///
 /// @license LGPLv3 (see LICENSE file)
 /// @author KonstantIMP
-/// @date 2020
+/// @date 2021
 module LogViewer;
 
 import gtk.ScrolledWindow;

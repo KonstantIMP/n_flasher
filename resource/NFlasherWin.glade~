@@ -14,7 +14,6 @@
         <property name="layout-style">start</property>
         <child>
           <object class="GtkLinkButton" id="get_adb_btn">
-            <property name="label" translatable="yes">Get ADB tools</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -29,7 +28,6 @@
         </child>
         <child>
           <object class="GtkLinkButton" id="get_rom_btn">
-            <property name="label" translatable="yes">Get stock ROM</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -74,7 +72,6 @@
           <object class="GtkLabel" id="adb_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">ADB path :</property>
             <property name="xalign">2.2351741291171123e-10</property>
           </object>
           <packing>
@@ -87,7 +84,6 @@
           <object class="GtkLabel" id="rom_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">ROM path :</property>
             <property name="xalign">0</property>
           </object>
           <packing>
@@ -100,7 +96,6 @@
           <object class="GtkLabel" id="log_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">Flashing log :</property>
             <property name="xalign">0</property>
           </object>
           <packing>
@@ -135,7 +130,6 @@
           <object class="GtkProgressBar" id="flash_pb">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="text" translatable="yes">Flashing</property>
             <property name="show-text">True</property>
           </object>
           <packing>
@@ -146,7 +140,6 @@
         </child>
         <child>
           <object class="GtkButton" id="flash_btn">
-            <property name="label" translatable="yes">Flash</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -154,7 +147,7 @@
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">13</property>
-            <property name="width">10</property>
+            <property name="width">7</property>
           </packing>
         </child>
         <child>
@@ -230,7 +223,6 @@
           <object class="GtkLabel" id="vbmeta_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">Flash vbmeta partition :</property>
             <property name="ellipsize">start</property>
             <property name="xalign">0</property>
           </object>
@@ -244,7 +236,6 @@
           <object class="GtkLabel" id="reboot_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">Raboot after flashing</property>
             <property name="ellipsize">start</property>
             <property name="xalign">0</property>
           </object>
@@ -278,6 +269,18 @@
           <packing>
             <property name="left-attach">9</property>
             <property name="top-attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="svb_flash_btn">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="left-attach">7</property>
+            <property name="top-attach">13</property>
+            <property name="width">3</property>
           </packing>
         </child>
       </object>

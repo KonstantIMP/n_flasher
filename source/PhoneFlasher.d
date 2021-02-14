@@ -4,7 +4,7 @@
 ///
 /// @license LGPLv3 (see LICENSE file)
 /// @author KonstantIMP
-/// @date 2020
+/// @date 2021
 module PhoneFlasher;
 import LogViewer;
 
@@ -16,6 +16,7 @@ import std.file;
 import core.thread;
 
 import std.stdio;
+import djtext.core;
 
 /// @brief Class for Nokia 7.1 flashing
 synchronized class PhoneFlasher {
@@ -24,6 +25,7 @@ synchronized class PhoneFlasher {
         adb = rom = "";
     }
 
+    /// @brief Check that ROM folder contains all file for flashing
     bool checkSVBValue(ref LogViewer _log, string _adb_path, string _rom_path) @safe {
         _log.makeRecord("Checking ADB tools path");
 

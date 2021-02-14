@@ -25,5 +25,13 @@
     "Flashing..." : "Процесс прошивки...",
     "Flash" : "Прошить",
     "SVB flash" : "Прошить SVB",
-    "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?" : "Все действия с телефоном вы делаете на свой страх и риск! Создатель данного ПО не несет ответсвенность за ваши последующие действия. Продолжить?"
+    "All actions with your phone are performed at your own risk. The Creator of this SOFTWARE is not responsible for your further actions. Want to continue?" : "Все действия с телефоном вы делаете на свой страх и риск! Создатель данного ПО не несет ответсвенность за ваши последующие действия. Продолжить?",
+    "ADB path" : "Путь до ADB",
+    "ROM path" : "Путь до ROM",
+    "Flashing log" : "Лог прошивки",
+    "Flash vbmeta partition" : "Прошивка раздела vbmeta",
+    "Reboot after flashing" : "Перезагрузка после прошивки",
+    "Get ADB tools" : "Скачать ADB",
+    "Get ROM tools" : "Скачать прошивку",
+    "About n_flasher" : "О программе"
 }

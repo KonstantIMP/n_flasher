@@ -4,7 +4,7 @@
 ///
 /// @license LGPLv3 (see LICENSE file)
 /// @author KonstantIMP
-/// @date 2020
+/// @date 2021
 module NFlasherWin;
 import LogViewer;
 import PhoneFlasher;
@@ -30,6 +30,7 @@ import gtk.Widget;
 
 import gtk.ProgressBar;
 import gtk.Button;
+import gtk.Label;
 import gtk.Entry;
 
 import gtk.Main;
@@ -90,6 +91,17 @@ class NFlasherWin : Window {
         flash_pb.setText(_("Flashing..."));
         flash_btn.setLabel(_("Flash"));
         svb_flash_btn.setLabel(_("SVB flash"));
+
+        (cast(Label)ui_builder.getObject("adb_msg")).setText(_("ADB path") ~ " :");
+        (cast(Label)ui_builder.getObject("rom_msg")).setText(_("ROM path") ~ " :");
+        (cast(Label)ui_builder.getObject("log_msg")).setText(_("Flashing log") ~ " :");
+
+        (cast(Label)ui_builder.getObject("vbmeta_msg")).setText(_("Flash vbmeta partition") ~ " :");
+        (cast(Label)ui_builder.getObject("reboot_msg")).setText(_("Reboot after flashing") ~ " :");
+
+        (cast(Button)ui_builder.getObject("about_btn")).setLabel(_("About n_flasher"));
+        (cast(Button)ui_builder.getObject("get_adb_btn")).setLabel(_("Get ADB tools"));
+        (cast(Button)ui_builder.getObject("get_rom_btn")).setLabel(_("Get ROM tools"));
     }
 
     /// @brief Connect signals for buttons
@@ -152,10 +164,12 @@ class NFlasherWin : Window {
         log_v.makeRecord(_("vbmeta flashing is : ") ~ (t.getActive() == true ? _("YES") : _("NO")));
     } 
 
+    /// @brief Making reboot record
     protected void rebootChanged(ToggleButton t) @trusted {
         log_v.makeRecord(_("Reboot after flashing : ") ~ (t.getActive() == true ? _("YES") : _("NO")));
     }
 
+    /// @brief Making slot record
     protected void slotChanged(ToggleButton t) @trusted {
         log_v.makeRecord(_("Slot for flashing : ") ~ (t.getActive() == true ? "B" : "A"));
     }
@@ -215,6 +229,7 @@ class NFlasherWin : Window {
         }
     }
 
+    /// @brief Slot for SVB flashing start
     protected void flasSVBhStart(Button _pressed) @trusted {
         flasher = new shared PhoneFlasher();
 
@@ -256,6 +271,7 @@ class NFlasherWin : Window {
         return true;
     }
 
+    /// @brief Disable and enable UI for safe flashing
     private void setUISentensive(bool value) {
         svb_flash_btn.setSensitive(value);
         
@@ -285,11 +301,12 @@ class NFlasherWin : Window {
     private Button set_rom_btn;
     /// @brief flash_btn Button for flashing starting
     private Button flash_btn;
-
+    /// @brief flash_btn Button for SVB flashing starting
     private Button svb_flash_btn;
 
+    /// @brief vbmeta_btn Button for setting vbmeta flash
     private CheckButton vbmeta_btn;
-
+    /// @brief vbmeta_btn Button for setting rebooting after flash
     private CheckButton reboot_btn;
 
     /// @brief adb_en Entry for ADB PATH setting
@@ -297,6 +314,7 @@ class NFlasherWin : Window {
     /// @brief rom_en Entry for ROM PATH setting
     private Entry rom_en;
 
+    /// @brief vbmeta_btn Button for setting slot for flashing
     private ToggleButton slot_btn;
 
     /// @brief ui_builder UI builder object
