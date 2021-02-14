@@ -28,3 +28,6 @@ builddir/
 
 # VS code dlang module
 compile_commands.json
+
+# n_flasher logs
+*.log
