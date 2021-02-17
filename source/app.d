@@ -39,10 +39,13 @@ int main( string [] args) {
         Builder bc = new Builder();
         try {
             version(linux) {
-                loadAllLocales("./locale");
                 bc.addFromResource("/kimp/ui/NFlasherWin.glade");
+                loadAllLocales("./locale");
             }
-            else bc.addFromFile("..\\res\\NFlasherWin.glade");
+            else {
+                bc.addFromFile("..\\res\\NFlasherWin.glade");
+                loadAllLocales("..\\locale\\");
+            }
         }
         catch (Exception) {
             /// Error while loading .glade file

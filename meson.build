@@ -1,4 +1,4 @@
-project('n_flasher', ['c', 'd'], version: '0.0.1')
+project('n_flasher', ['c', 'd'], version: '2.0.1')
 
 gnome = import('gnome')
 
@@ -15,7 +15,7 @@ sources_dir = include_directories('source/')
 
 resources_dir = 'resource/'
 
-gtkd_dep = dependency('gtkd-3')
+gtkd_dep = dependency('gtk-d:gtkd', method : 'dub')
 gtk_dep = dependency('gtk+-3.0')
 
 djtext_dep = dependency('djtext', method : 'dub')
