@@ -188,7 +188,7 @@ class NFlasherWin : Window {
         
         try {
             if(os == OS.linux) about.setLogo(Pixbuf.newFromResource("/kimp/img/n_flasher.png", 96, 96, true));
-            else about.setLogo(new Pixbuf("res\\n_flasher.png", 96, 96, true));
+            else about.setLogo(new Pixbuf("..\\res\\n_flasher.png", 96, 96, true));
         }
         catch(Exception) {
             MessageDialog war = new MessageDialog(this, GtkDialogFlags.MODAL | GtkDialogFlags.USE_HEADER_BAR,
