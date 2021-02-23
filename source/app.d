@@ -26,6 +26,7 @@ import djtext.core;
 int main( string [] args) {
     /// Getting current locale
     if(indexOf(to!(string)(setlocale(LC_ALL, "")), "ru_RU") != -1) defaultLocale = "ru_RU";
+    if(indexOf(to!(string)(setlocale(LC_ALL, "")), "Russia") != -1) defaultLocale = "ru_RU";
 
     /// GTKd init
 	Main.init(args);
