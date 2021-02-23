@@ -116,7 +116,7 @@ synchronized class PhoneFlasher {
         }
 
         string full_adb = adb ~ (os == OS.linux ? "adb" : "\\adb.exe");
-        string full_fastboot = (os == OS.linux ? "sudo " : "") ~ adb ~ (os == OS.linux ? "fastboot" : "fastboot.exe");
+        string full_fastboot = adb ~ (os == OS.linux ? "fastboot" : "fastboot.exe");
 
         send(parent, "Flashing started. Dont\'t touch your device!!!");
         send(parent, "Full ADB path is : " ~ full_adb);
@@ -287,7 +287,7 @@ synchronized class PhoneFlasher {
         }
 
         string full_adb = adb ~ (os == OS.linux ? "adb" : "\\adb.exe");
-        string full_fastboot = (os == OS.linux ? "sudo " : "") ~ adb ~ (os == OS.linux ? "fastboot" : "fastboot.exe");
+        string full_fastboot = adb ~ (os == OS.linux ? "fastboot" : "fastboot.exe");
 
         send(parent, "Flashing started. Dont\'t touch your device!!!");
         send(parent, "Full ADB path is : " ~ full_adb);
