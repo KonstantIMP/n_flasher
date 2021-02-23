@@ -31,3 +31,6 @@ compile_commands.json
 
 # n_flasher logs
 *.log
+
+# DUB files
+.dub\
