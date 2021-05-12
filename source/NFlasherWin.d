@@ -6,8 +6,8 @@
 /// @author KonstantIMP
 /// @date 2021
 module NFlasherWin;
-import LogViewer;
-import PhoneFlasher;
+import LogViewer : LogViewer;
+import PhoneFlasher : PhoneFlasher;
 import Defines;
 
 import std.system;

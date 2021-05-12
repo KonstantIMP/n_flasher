@@ -15,7 +15,7 @@ sources_dir = include_directories('source/')
 
 resources_dir = 'resource/'
 
-gtkd_dep = dependency('gtk-d:gtkd', method : 'dub')
+gtkd_dep = dependency('gtkd-3')
 gtk_dep = dependency('gtk+-3.0')
 
 djtext_dep = dependency('djtext', method : 'dub')

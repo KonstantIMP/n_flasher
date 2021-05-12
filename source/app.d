@@ -6,7 +6,7 @@
 /// @author KonstantIMP
 /// @date 2021
 module NFlasher;
-import NFlasherWin;
+import NFlasherWin : NFlasherWin;
 
 import gtk.Application;
 import gtk.MessageDialog;

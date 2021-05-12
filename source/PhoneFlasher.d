@@ -6,7 +6,7 @@
 /// @author KonstantIMP
 /// @date 2021
 module PhoneFlasher;
-import LogViewer;
+import LogViewer : LogViewer;
 
 import std.concurrency;
 import std.process;
